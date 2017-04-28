@@ -47,9 +47,9 @@ return YES;
 
 
 -(void) meaningsFromServer: (NSString *) searchContent {
-    NSDictionary *parameters = @{@"sf": searchContent};
+    NSDictionary *parameter = @{@"sf": searchContent};
      [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [[NetworkClient sharedManager] getResponseForURLString: @"http://www.nactem.ac.uk/software/acromine/dictionary.py?" Parameters:parameters success:^(NSURLSessionDataTask *task, Acronym *acronym) {
+    [[NetworkClient sharedManager] getResponseForURLString: @"http://www.nactem.ac.uk/software/acromine/dictionary.py?" Parameters:parameter success:^(NSURLSessionDataTask *task, Acronym *acronym) {
         printf("Success!!");
     self.acronym = acronym;
          [MBProgressHUD hideHUDForView:self.view animated:YES];
